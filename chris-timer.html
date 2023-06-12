@@ -17,35 +17,40 @@
             var maxCount = 10; // max count; ganze Zahl (integer); in Sekunden
             var timerId; // Wird zum Stoppen von setInterval() verwendet.
 
-            function startCountdown() {
-                stopCountdown(); // Falls es schon einen Timer gibt: zuerst stoppen.
-                setDisplay(maxCount); // Set Display
-                count = maxCount; // count in Anfangszustand setzen.
+            function startCountdown() 
+                {
+                    stopCountdown(); // Falls es schon einen Timer gibt: zuerst stoppen.
+                    setDisplay(maxCount); // Set Display
+                    count = maxCount; // count in Anfangszustand setzen.
 
-                // Verwende die Referenz 'updateCounter', um die Funktion für später zu registrieren.
-                timerId = setInterval(updateCounter, 1000); // Jede Sekunde: aktualisiere den Zähler und die Anzeige.
-            } 
+                    // Verwende die Referenz 'updateCounter', um die Funktion für später zu registrieren.
+                    timerId = setInterval(updateCounter, 1000); // Jede Sekunde: aktualisiere den Zähler und die Anzeige.
+                } 
             
-            function stopCountdown() {
-                // JavaScript Funktion clearInterval() aufrufen.
-                clearInterval(timerId);
-            }
-
-            function updateCounter() {
-                count = count - 1; // Kurzschreibweise: count--;
-                setDisplay(count);
-
-                if (count === 0) { // count is the same type as 0 AND count equals 0
-                    stopCountdown();
-                    setDisplay("Fertig!");
-                    // Audio abspielen
-                    // Ausruf, Hinweis anzeigen
+            function stopCountdown() 
+                {
+                    // JavaScript Funktion clearInterval() aufrufen.
+                    clearInterval(timerId);
                 }
-            }
 
-            function setDisplay(info) { // 'info' kann z. Bsp. ein String oder eine Zahl sein.
-                document.getElementById("display").innerHTML = info;
-            }
+            function updateCounter() 
+                {
+                    count = count - 1;  // Kurzschreibweise: count--;
+                    setDisplay(count);
+
+                    if (count === 0)  // count is the same type as 0 AND count equals 0
+                        {
+                            topCountdown();
+                            setDisplay("Fertig!");
+                            // Audio abspielen
+                            // Ausruf, Hinweis anzeigen
+                        }
+                }
+
+            function setDisplay(info)  // 'info' kann z. Bsp. ein String oder eine Zahl sein.
+                {
+                    document.getElementById("display").innerHTML = info;
+                }
         </script>
 
         <p id="display">&nbsp;</p>
