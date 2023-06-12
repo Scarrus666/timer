@@ -1,14 +1,21 @@
-var count;
-var maxCount = 30;
+var countSeconds;
+var maxCountSeconds = 10;
+var countMinutes;
+var maxCountMinutes = 1;
 var timerId;
-count = maxCount;
+countSeconds = maxCountSeconds;
+countMinutes = maxCountMinutes;
+
 
 function startCounter()
     {
         stopCounter();
-        setDisplay(count);
-        count = count;
-        timerId = setInterval(updateCounter, 1000);
+        setDisplay(countSeconds);
+        //setDisplay2(countMinutes);
+        countSeconds = countSeconds;
+        countMinutes = countMinutes;
+        timerId = setInterval(updateCounterSeconds, 1000);
+        // timerId = setInterval(updateCounterMinutes, 60000);
     }
 
 function stopCounter()
@@ -18,24 +25,41 @@ function stopCounter()
 
 function resetCounter()
     {
-        setDisplay(maxCount);
-        count = maxCount;
+        setDisplay(maxCountSeconds);
+        countSeconds = maxCountSeconds;
     }
 
-function updateCounter()
+function updateCounterSeconds()
     {
-        count = count - 1;
-        setDisplay(count);
+        countSeconds = countSeconds - 1;
+        setDisplay(countSeconds);
 
-        if (count === 0)
+        if (countSeconds == 0)
             {
-                topCountDown();
-                setDisplay("Done!");
+                // stopCounter();
+                countSeconds = 60;
                 // add more!!
+            }
+    }
+
+function updateCounterMinutes()
+    {
+        countMinutes = countMinutes - 1;
+        setDisplay2(countMinutes);
+
+        if (countMinutes == 0 && countSeconds == 0)
+            {
+                stopCounter();
+                setDisplay2("Fer");
             }
     }
 
 function setDisplay(info)
     {
         document.getElementById("display").innerHTML = info;
+    }
+
+function setDisplay2(info)
+    {
+        document.getElementVyId("Display2").innerHTML = info;
     }
