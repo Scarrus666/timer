@@ -1,5 +1,5 @@
 var countSeconds;
-var maxCountSeconds = 5;
+var maxCountSeconds = 30;
 var countMinutes;
 var maxCountMinutes = 1;
 var timerId;

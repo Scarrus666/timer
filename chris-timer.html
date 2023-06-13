@@ -51,6 +51,20 @@
                 {
                     document.getElementById("display").innerHTML = info;
                 }
+
+            function getSecondsInput()
+                {
+                    let value = document.getElementById("seconds").value; // 'value' ist ein String.
+                    return parseInt(value); // Mit parseInt() wird der String ins ganze Zahl umwandeln
+                }
+
+            function secondsToTimeString(seconds)
+                {
+                    let minutes = Math.floor(seconds / 60);
+                    let hours = Math.floor(minutes / 60);
+
+                    return secondsToTimeString;
+                }
         </script>
 
         <p id="display">&nbsp;</p>
@@ -64,6 +78,11 @@
                 class="btn btn-success"
                 id="stopButton"
                 onclick="stopCountdown();">STOP</button>
+
+        <form>
+            <input type="number" id="seconds" value="20" style="width:50px; margin-top:20px;">
+            <label>sec</label>
+        </form>
     </div>
 
 </body>

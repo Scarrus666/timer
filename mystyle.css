@@ -26,7 +26,10 @@ body
 {
     width: 125px;
     height: 118px;
-    margin-left: 25px;
+    margin-left: 13px;
+    margin-right: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 50%;
     border: none;
     color: white;
