@@ -14,15 +14,20 @@ insertZero = "0";
 function startCounter()
     {
         stopCounter();
+        maxCountHours = document.getElementById("hours").value;
         maxCountMinutes = document.getElementById("minutes").value;
         maxCountSeconds = document.getElementById("seconds").value;
         countSeconds = maxCountSeconds;
         countMinutes = maxCountMinutes;
+        countHours = maxCountHours;
+        setFormatSeconds();
         setDisplay(countSeconds);
         setFormatMinutes();
         setDisplay2(countMinutes);
+        setFormatHours();
+        setDisplay3(countHours);
         reformatMinutes();
-
+        reformatHours();
         timerId = setInterval(updateCounter, 1000);
     }
 
@@ -35,10 +40,15 @@ function resetCounter()
     {
         countSeconds = maxCountSeconds;
         countMinutes = maxCountMinutes;
+        countHours = maxCountHours;
         setFormatSeconds();
         setFormatMinutes();
-        setDisplay(maxCountSeconds);
-        setDisplay2(maxCountMinutes);
+        setFormatHours();
+        setDisplay(countSeconds);
+        setDisplay2(countMinutes);
+        setDisplay3(countHours);
+        reformatMinutes();
+        reformatHours();
     }
 
 function updateCounter()
@@ -46,9 +56,12 @@ function updateCounter()
         countSeconds = countSeconds - 1;
         setFormatSeconds();
         setFormatMinutes();
+        setFormatHours();
         setDisplay(countSeconds);
         setDisplay2(countMinutes);
+        setDisplay3(countHours);
         reformatMinutes();
+        reformatHours();
 
         if (countSeconds <= 0 && countMinutes <= 0 && countHours <= 0)
             {
@@ -56,6 +69,14 @@ function updateCounter()
                 setDisplay3("Wir");
                 setDisplay2("haben");
                 setDisplay("fertig");
+            }
+
+        else if (countMinutes == 0 && countSeconds == 0)
+            {
+                countMinutes = 60;
+                countSeconds = 60;
+                countHours = countHours - 1;
+                countMinutes = countMinutes - 1;
             }
 
         else if (countSeconds == 0)
@@ -82,10 +103,24 @@ function setFormatMinutes()
             }
     }
 
+function setFormatHours()
+    {
+        if (countHours < 10)
+            {
+                countHours = insertZero + countHours;
+            }
+    }
+
 function reformatMinutes()
     {
         countMinutes = countMinutes - 3;
         countMinutes = countMinutes + 3;
+    }
+
+function reformatHours()
+    {
+        countHours = countHours -3;
+        countHours = countHours +3;
     }
 
 function setDisplay(info)
