@@ -1,5 +1,5 @@
 var countSeconds;
-var maxCountSeconds = 60;
+var maxCountSeconds = 5;
 var countMinutes;
 var maxCountMinutes = 1;
 var timerId;
@@ -15,7 +15,6 @@ function startCounter()
         countSeconds = countSeconds;
         countMinutes = countMinutes;
         timerId = setInterval(updateCounterSeconds, 1000);
-        // timerId = setInterval(updateCounterMinutes, 60000);
     }
 
 function stopCounter()
@@ -27,6 +26,7 @@ function resetCounter()
     {
         setDisplay(maxCountSeconds);
         setDisplay2(maxCountMinutes);
+        setSeparator(":");
         countSeconds = maxCountSeconds;
         countMinutes = maxCountMinutes;
     }
@@ -35,19 +35,9 @@ function updateCounterSeconds()
     {
         countSeconds = countSeconds - 1;
         setDisplay(countSeconds);
+        setDisplay2(countMinutes);
 
-        if (countSeconds == 0)
-            {
-                // stopCounter();
-                // setDisplay("mate");
-                // setSeparator("here");
-                // setDisplay2("We done");
-                countSeconds = 60;
-                countMinutes = countMinutes - 1;
-                // add more!!
-            }
-
-        else if (countMinutes == 0 && countSeconds == 0)
+        if (countSeconds == 0 && countMinutes == 0)
             {
                 stopCounter();
                 setDisplay("mate");
@@ -55,17 +45,12 @@ function updateCounterSeconds()
                 setDisplay2("We done");
 
             }
-    }
 
-function updateCounterMinutes()
-    {
-        countMinutes = countMinutes - 1;
-        setDisplay2(countMinutes);
-
-        if (countMinutes == 0 && countSeconds == 0)
+        else if (countSeconds == 0)
             {
-                stopCounter();
-                setDisplay2("Fer");
+                countSeconds = 60;
+                countMinutes = countMinutes - 1;
+                // add more!!
             }
     }
 
