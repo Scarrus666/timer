@@ -1,22 +1,28 @@
 var countSeconds;
-var maxCountSeconds = 13;
+var maxCountSeconds;
 var countMinutes;
-var maxCountMinutes = 10;
+var maxCountMinutes;
+var countHours;
+var maxCountHours;
 var timerId;
 let insertZero;
 insertZero = "0";
-countSeconds = maxCountSeconds;
-countMinutes = maxCountMinutes;
+
 
 
 
 function startCounter()
     {
         stopCounter();
+        maxCountMinutes = document.getElementById("minutes").value;
+        maxCountSeconds = document.getElementById("seconds").value;
+        countSeconds = maxCountSeconds;
+        countMinutes = maxCountMinutes;
         setDisplay(countSeconds);
+        setFormatMinutes();
         setDisplay2(countMinutes);
-        countSeconds = countSeconds;
-        countMinutes = countMinutes;
+        reformatMinutes();
+
         timerId = setInterval(updateCounter, 1000);
     }
 
@@ -27,11 +33,12 @@ function stopCounter()
 
 function resetCounter()
     {
-        setDisplay(maxCountSeconds);
-        setDisplay2(maxCountMinutes);
-        setSeparator(":");
         countSeconds = maxCountSeconds;
         countMinutes = maxCountMinutes;
+        setFormatSeconds();
+        setFormatMinutes();
+        setDisplay(maxCountSeconds);
+        setDisplay2(maxCountMinutes);
     }
 
 function updateCounter()
@@ -43,13 +50,12 @@ function updateCounter()
         setDisplay2(countMinutes);
         reformatMinutes();
 
-        if (countSeconds == 0 && countMinutes == 0)
+        if (countSeconds <= 0 && countMinutes <= 0 && countHours <= 0)
             {
                 stopCounter();
-                setDisplay("mate");
-                setSeparator("here");
-                setDisplay2("We done");
-
+                setDisplay3("Wir");
+                setDisplay2("haben");
+                setDisplay("fertig");
             }
 
         else if (countSeconds == 0)
@@ -78,8 +84,8 @@ function setFormatMinutes()
 
 function reformatMinutes()
     {
-        countMinutes = countMinutes - maxCountMinutes;
-        countMinutes = countMinutes + maxCountMinutes;
+        countMinutes = countMinutes - 3;
+        countMinutes = countMinutes + 3;
     }
 
 function setDisplay(info)
@@ -90,6 +96,11 @@ function setDisplay(info)
 function setDisplay2(info)
     {
         document.getElementById("display2").innerHTML = info;
+    }
+
+function setDisplay3(info)
+    {
+        document.getElementById("display3").innerHTML = info;
     }
 
 function setSeparator(info)
