@@ -63,7 +63,12 @@
                     let minutes = Math.floor(seconds / 60);
                     let hours = Math.floor(minutes / 60);
 
-                    return secondsToTimeString;
+                    return timeToString(hours, minutes, seconds % 60);
+                }
+
+            function timeToString(hours, minutes, seconds)
+                {
+                    return hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
                 }
         </script>
 

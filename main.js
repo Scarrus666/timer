@@ -1,10 +1,12 @@
 var countSeconds;
-var maxCountSeconds = 30;
+var maxCountSeconds = 13;
 var countMinutes;
 var maxCountMinutes = 1;
 var timerId;
 countSeconds = maxCountSeconds;
 countMinutes = maxCountMinutes;
+let insertZero;
+insertZero = "0";
 
 
 function startCounter()
@@ -34,6 +36,7 @@ function resetCounter()
 function updateCounterSeconds()
     {
         countSeconds = countSeconds - 1;
+        setFormat();
         setDisplay(countSeconds);
         setDisplay2(countMinutes);
 
@@ -51,6 +54,19 @@ function updateCounterSeconds()
                 countSeconds = 60;
                 countMinutes = countMinutes - 1;
                 // add more!!
+            }
+    }
+
+function setFormat()
+    {
+        if (countSeconds < 10)
+            {
+                countSeconds = insertZero + countSeconds;
+            }
+
+        if (countMinutes < 10 )
+            {
+                countMinutes = insertZero + countMinutes;
             }
     }
 
