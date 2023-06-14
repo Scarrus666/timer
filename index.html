@@ -26,9 +26,9 @@
         <span class="timer-part">:</span>
         <span class="timer-part timer-part-seconds">00</span>
 -->
-        <button id="startButton" type="button" class="timer-btn timer-btn-start" onclick="startCounter();">START<font color="red" size="3px">OVER</font></button>
-        <button id="resetButton" type="button" class="timer-btn timer-btn-reset" onclick="pauseCounter();">RESUME</button>
-        <button id="stopButton" type="button" class="timer-btn timer-btn-stop" onclick="stopCounter();">STOP</button>
+        <button id="startButton" type="button" class="timer-btn timer-btn-start" onclick="startCounter();">PLAY<font color="grey" size="2px">RESUME</font></button>
+        <button id="resetButton" type="button" class="timer-btn timer-btn-reset" onclick="pauseCounter();">RE<font color="grey" size="2px">START</font></button>
+        <button id="stopButton" type="button" class="timer-btn timer-btn-stop" onclick="stopCounter();">STOP<font color="grey" size="2px">PAUSE</font></button>
     </div>
     <pr><br></pr>
     <div class="timer alert">
@@ -43,6 +43,7 @@
             <input type="number" id="seconds" onkeypress="return event.charCode >= 48" value="0" min="0" max="59" onKeyDown="return false">
             
             <button type="button" class="set-btn" onclick="setTimer()">SET</button>
+            <button id="reset" type="button" class="reset-btn" onclick="resetToZero()">RESET</button>
         </form>
         
     </div>

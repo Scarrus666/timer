@@ -62,6 +62,7 @@ input
     margin-right: 10px;
     text-align: center;
     border-radius: 10px;
+    vertical-align: middle;
 }
 
 .set-btn
@@ -69,10 +70,10 @@ input
     font-size: 20px;
     width: 55px;
     height: 40px;
-    margin-top: 9px;
-    margin-bottom: 9px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
     text-align: center;
     color: white;
     background: #8208e6;
@@ -80,4 +81,27 @@ input
     border: none;
     /* border-color: black, grey; */
     border-radius: 25%;
+}
+
+.reset-btn
+{
+    font-size: 20px;
+    width: 70px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    text-align: center;
+    color: white;
+    background: red;
+    font-weight: 500;
+    border: none;
+    /* border-color: black, grey; */
+    border-radius: 25%;
+}
+
+button
+{
+    vertical-align: middle;
 }

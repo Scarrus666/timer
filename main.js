@@ -207,3 +207,13 @@ function setTimer()
         setFormatHours();
         setDisplay3(countHours);
     }
+
+function resetToZero()
+    {
+        elementHours = document.getElementById("hours");
+        elementMinutes = document.getElementById("minutes");
+        elementSeconds = document.getElementById("seconds");
+        elementHours.value = 0;
+        elementMinutes.value = 0;
+        elementSeconds.value = 0;
+    }
