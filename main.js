@@ -67,6 +67,7 @@ function startCounter()
 function stopCounter()
     {
         clearInterval(timerId);
+        // playSound();
     }
 
 /* 
@@ -98,6 +99,7 @@ function updateCounter()
                 countSeconds = "0"
                 countMinutes = "0"
                 countHours = "0"
+                playSound();
                 // setDisplay3("Wir");
                 // setDisplay2("haben");
                 // setDisplay("fertig");
@@ -118,14 +120,14 @@ function updateCounter()
                 // add more!!
             }
 
-            setFormatSeconds();
-            setFormatMinutes();
-            setFormatHours();
-            setDisplay(countSeconds);
-            setDisplay2(countMinutes);
-            setDisplay3(countHours);
-            reformatMinutes();
-            reformatHours();
+        setFormatSeconds();
+        setFormatMinutes();
+        setFormatHours();
+        setDisplay(countSeconds);
+        setDisplay2(countMinutes);
+        setDisplay3(countHours);
+        reformatMinutes();
+        reformatHours();
     }
 
 function setFormatSeconds()
@@ -232,4 +234,10 @@ function resetToZero()
         setDisplay3(countHours);
         reformatMinutes();
         reformatHours();
+    }
+
+function playSound()
+    {
+        let heey = new Audio('heey.mp3');
+        heey.play();
     }
