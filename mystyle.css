@@ -33,6 +33,7 @@ body
     border-radius: 50%;
     border: none;
     color: white;
+    font-weight: bold;
     background-color: #8208e6;
     cursor: pointer;
 }
@@ -65,14 +66,18 @@ input
 
 .set-btn
 {
+    font-size: 20px;
     width: 55px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    height: 40px;
+    margin-top: 9px;
+    margin-bottom: 9px;
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
     color: white;
     background: #8208e6;
+    font-weight: 500;
     border: none;
+    /* border-color: black, grey; */
     border-radius: 25%;
 }
