@@ -51,3 +51,28 @@ body
 {
     background: rgb(226, 226, 0);
 }
+
+input
+{
+    width: 55px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.set-btn
+{
+    width: 55px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    color: white;
+    background: #8208e6;
+    border: none;
+    border-radius: 25%;
+}

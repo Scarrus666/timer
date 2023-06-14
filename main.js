@@ -6,6 +6,13 @@ var countHours;
 var maxCountHours;
 var timerId;
 let insertZero;
+
+countSeconds = 0;
+countMinutes = 0;
+countHours = 0;
+maxCountSeconds = 0;
+maxCountMinutes = 0;
+maxCountHours = 0;
 insertZero = "0";
 
 
@@ -14,12 +21,38 @@ insertZero = "0";
 function startCounter()
     {
         stopCounter();
-        maxCountHours = document.getElementById("hours").value;
-        maxCountMinutes = document.getElementById("minutes").value;
-        maxCountSeconds = document.getElementById("seconds").value;
+        // maxCountHours = document.getElementById("hours").value;
+        // maxCountMinutes = document.getElementById("minutes").value;
+        // maxCountSeconds = document.getElementById("seconds").value;
         countSeconds = maxCountSeconds;
         countMinutes = maxCountMinutes;
         countHours = maxCountHours;
+        reformatSeconds();
+        reformatMinutes();
+        reformatHours();
+        setFormatSeconds();
+        setDisplay(countSeconds);
+        setFormatMinutes();
+        setDisplay2(countMinutes);
+        setFormatHours();
+        setDisplay3(countHours);
+        reformatMinutes();
+        reformatHours();
+        timerId = setInterval(updateCounter, 1000);
+    }
+
+    function pauseCounter()
+    {
+        stopCounter();
+        // maxCountHours = document.getElementById("hours").value;
+        // maxCountMinutes = document.getElementById("minutes").value;
+        // maxCountSeconds = document.getElementById("seconds").value;
+        // countSeconds = maxCountSeconds;
+        // countMinutes = maxCountMinutes;
+        // countHours = maxCountHours;
+        reformatSeconds();
+        reformatMinutes();
+        reformatHours();
         setFormatSeconds();
         setDisplay(countSeconds);
         setFormatMinutes();
@@ -38,6 +71,7 @@ function stopCounter()
 
 function resetCounter()
     {
+        stopCounter();
         countSeconds = maxCountSeconds;
         countMinutes = maxCountMinutes;
         countHours = maxCountHours;
@@ -54,37 +88,42 @@ function resetCounter()
 function updateCounter()
     {
         countSeconds = countSeconds - 1;
-        setFormatSeconds();
-        setFormatMinutes();
-        setFormatHours();
-        setDisplay(countSeconds);
-        setDisplay2(countMinutes);
-        setDisplay3(countHours);
-        reformatMinutes();
-        reformatHours();
+
 
         if (countSeconds <= 0 && countMinutes <= 0 && countHours <= 0)
             {
                 stopCounter();
-                setDisplay3("Wir");
-                setDisplay2("haben");
-                setDisplay("fertig");
+                countSeconds = "0"
+                countMinutes = "0"
+                countHours = "0"
+                // setDisplay3("Wir");
+                // setDisplay2("haben");
+                // setDisplay("fertig");
             }
 
-        else if (countMinutes == 0 && countSeconds == 0)
+        else if (countMinutes == 0 && countSeconds < 0)
             {
                 countMinutes = 60;
-                countSeconds = 60;
+                countSeconds = 59;
                 countHours = countHours - 1;
                 countMinutes = countMinutes - 1;
             }
 
-        else if (countSeconds == 0)
+        else if (countSeconds < 0)
             {
-                countSeconds = 60;
+                countSeconds = 59;
                 countMinutes = countMinutes - 1;
                 // add more!!
             }
+
+            setFormatSeconds();
+            setFormatMinutes();
+            setFormatHours();
+            setDisplay(countSeconds);
+            setDisplay2(countMinutes);
+            setDisplay3(countHours);
+            reformatMinutes();
+            reformatHours();
     }
 
 function setFormatSeconds()
@@ -109,6 +148,12 @@ function setFormatHours()
             {
                 countHours = insertZero + countHours;
             }
+    }
+
+function reformatSeconds()
+    {
+        countSeconds = countSeconds - 3;
+        countSeconds = countSeconds + 3;
     }
 
 function reformatMinutes()
@@ -141,4 +186,24 @@ function setDisplay3(info)
 function setSeparator(info)
     {
         document.getElementById("separator").innerHTML = info;
+    }
+
+function setTimer()
+    {
+        stopCounter();
+        maxCountHours = document.getElementById("hours").value;
+        maxCountMinutes = document.getElementById("minutes").value;
+        maxCountSeconds = document.getElementById("seconds").value;
+        countHours = maxCountHours;
+        countMinutes = maxCountMinutes;
+        countSeconds = maxCountSeconds;
+        reformatSeconds();
+        setFormatSeconds();
+        setDisplay(countSeconds);
+        reformatMinutes();
+        setFormatMinutes();
+        setDisplay2(countMinutes);
+        reformatHours();
+        setFormatHours();
+        setDisplay3(countHours);
     }

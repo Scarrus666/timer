@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
     <!-- <script src="main.js" defer></script> -->
+    <script src="main.js" defer></script>
     <title>Timer</title>
 </head>
 <body>
@@ -25,21 +26,23 @@
         <span class="timer-part">:</span>
         <span class="timer-part timer-part-seconds">00</span>
 -->
-        <button id="startButton" type="button" class="timer-btn timer-btn-start" onclick="startCounter();">START</button>
-        <button id="resetButton" type="button" class="timer-btn timer-btn-reset" onclick="resetCounter();">RESET</button>
+        <button id="startButton" type="button" class="timer-btn timer-btn-start" onclick="startCounter();"><font color="red">RE</font>START</button>
+        <button id="resetButton" type="button" class="timer-btn timer-btn-reset" onclick="pauseCounter();">RESUME</button>
         <button id="stopButton" type="button" class="timer-btn timer-btn-stop" onclick="stopCounter();">STOP</button>
     </div>
     <pr><br></pr>
     <div class="timer alert">
         <form>
-            <input type="number" id="hours" value="" style="width:50px; margin-top:20px;">
             <label>Std</label>
+            <input type="number" id="hours" onkeypress="return event.charCode >= 48" value="0" min="0" max="96" onKeyDown="return false">
 
-            <input type="number" id="minutes" value="" style="width:50px; margin-top:20px;">
             <label>Min</label>
+            <input type="number" id="minutes" onkeypress="return event.charCode >= 48" value="0" min="0" max="59" onKeyDown="return false">
 
-            <input type="number" id="seconds" value="" style="width:50px; margin-top:20px;">
             <label>Sek</label>
+            <input type="number" id="seconds" onkeypress="return event.charCode >= 48" value="0" min="0" max="59" onKeyDown="return false">
+            
+            <button type="button" class="set-btn" onclick="setTimer()">SET</button>
         </form>
         
     </div>
@@ -50,6 +53,6 @@
         <button type="button" class="timer-btn timer-btn-reset">RESET</button>
     </div>
 -->
-<script src="main.js"></script>
+
 </body>
 </html>
