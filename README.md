@@ -5,6 +5,13 @@ OWNER:
 
         Alexandru Ioan Iordachel
 
+PROJECT FILES:
+
+        index.html
+        mystyle.css
+        main.js
+        README.md
+
 
 Link to FIGMA: 
 

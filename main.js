@@ -69,6 +69,7 @@ function stopCounter()
         clearInterval(timerId);
     }
 
+/* 
 function resetCounter()
     {
         stopCounter();
@@ -84,6 +85,7 @@ function resetCounter()
         reformatMinutes();
         reformatHours();
     }
+*/
 
 function updateCounter()
     {
@@ -216,4 +218,18 @@ function resetToZero()
         elementHours.value = 0;
         elementMinutes.value = 0;
         elementSeconds.value = 0;
+        countSeconds = 0;
+        countMinutes = 0;
+        countHours = 0;
+        reformatSeconds();
+        reformatMinutes();
+        reformatHours();
+        setFormatSeconds();
+        setDisplay(countSeconds);
+        setFormatMinutes();
+        setDisplay2(countMinutes);
+        setFormatHours();
+        setDisplay3(countHours);
+        reformatMinutes();
+        reformatHours();
     }
