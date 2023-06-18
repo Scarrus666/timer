@@ -61,7 +61,7 @@ function startCounter()
         setDisplay3(countHours);
         reformatMinutes();
         reformatHours();
-        timerId = setInterval(updateCounter, 1);
+        timerId = setInterval(updateCounter, 1000);
     }
 
 function stopCounter()
